@@ -1,14 +1,8 @@
-<!--210430 14:21 김예원 (최종수정자) -->
-<!-- 최종 -->
-<%@page import="mvc.Intro.model.vo.Notice"%>
+<!--210426 9:54 김예원 (최종수정자) -->
+<!-- 프론트 & 백 통합 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/views/common/headerDetail.jsp" %>
-
-<%
-	Notice notice = (Notice)request.getAttribute("notice");
-%>
-
 
 <style>
 @font-face {
@@ -107,7 +101,7 @@
 	}
 	
 	/*리셋버튼 스타일*/
-	.btn-remove {
+	.btn-cancell {
 		width:65px; height:30px;
 		background-color : white;
 		border: none;
@@ -119,82 +113,39 @@
 		border: none;
 	}
 	
-	.btn-cancell {
-		width:65px; height:30px;
-		background-color : white;
-		border: none;
-	}
-	
 	/*마우스올렸을 때 강조 (제목/작성자/버튼)*/
 	input:hover { background-color:wheat;}
 	
-	/*----------------------------------- 추가된 스타일------------------------------- */
-	div#file {
-		display: block;
-		font-size: 10pt;
-		float:left;
-		margin-left:5px;
-	}
-	/*------------------------------------------------------------------------------- */
 </style>
+
 <div id="box">
 <section id="content">
 	<div id="conbox">
 	<div id='NoticeWriteContainer'>
-		<span>공지사항 수정</span>
-		<form action="<%= request.getContextPath() %>/Intro/NoticeUpdate" method="POST" enctype="multipart/form-data">
-		
+		<span>공지사항 등록</span>
+		<form action="<%= request.getContextPath() %>/Intro/NoticeWrite" method="POST" enctype="multipart/form-data">
 			<table id='tbl-noticeWrite'>
-				<input type="hidden" name="noticeNo" value="<%= notice.getNotice_code()%>"/>
-				<input type="hidden" id="originalFileName" name="originalFileName" value="<%= notice.getOriginal_filename() %>"/>
-				<input type="hidden" id="renameFileName" name="renameFileName" value="<%= notice.getRenamed_filename() %>"/>
 				<tr>
 					<th>제목</th>
-					<td><input type="text" name="title" class="notice-title" value="<%= notice.getNotice_name()%>"></td>
+					<td><input type="text" name="title" class="notice-title"></td>
 				</tr>
 				<tr>
 					<th>작성자</th>
-					<td><input type="text" name="writer" class="notice-writer" value="<%= notice.getNotice_writer() %>"  readonly></td>
+					<td><input type="text" name="writer" class="notice-writer" value="관리자" readonly/></td>
 				</tr>
 				<tr>
 					<th>첨부파일</th>
-					<td>
-					
-					<input type="file" name="reloadFile" id="reloadFile" value="<%=notice.getOriginal_filename()%>"/>
-					<input type="button" id="deletefile" name="deletefile" value="삭제">
-								
-						
-					<% if(notice.getOriginal_filename() != null) { %>
-						<div id="file">
-						<img id="filedownIcon" src="<%= request.getContextPath() %>/resources/images/filedown.png" width="20" height="20"/>
-						<%= notice.getOriginal_filename() %>
-						</div>
-					<% } %>
-					
-					<script>
-						$(document).ready(function(){
-							$("#deletefile").on("click",(e) => {
-								$("#reloadFile").val('');
-								$("#originalFileName").val('');
-								$("#renameFileName").val('');
-								$("#file").remove();
-								$("#filedownIcon").remove();
-							});
-						});
-					</script>
-					</td>
+					<td><input type="file" name="upfile"/></td>
 				</tr>
 				<tr>
 					<th>내용</th>
-					<td><textarea name="content" class="notice-content" cols="50" rows="15"><%=notice.getNotice_content() %></textarea></td>
+					<td><textarea name="content" class="notice-content" cols="50" rows="15" ></textarea></td>
 				</tr>
 				
 				<tr>
 					<th colspan="2">
 						<input type="button"  class="btn-cancell" onclick="location.href='<%= request.getContextPath() %>/Intro/NoticeBoard'"  value="작성취소">
-						<input type="submit" class="btn-submit" value="수정">
-						<input type="button"  class="btn-remove" onclick="location.href='<%= request.getContextPath() %>/Intro/NoticeDelete?noticeNo=<%= notice.getNotice_code()%>'"  value="삭제">
-						
+						<input type="submit" class="btn-submit" value="등록">
 					</th>
 				</tr>
 			</table>

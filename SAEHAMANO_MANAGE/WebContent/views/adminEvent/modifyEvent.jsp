@@ -1,4 +1,4 @@
-<!--210430 20:51 조한결-->
+<!--210430 19:29 이재용-->
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>
 <%@page import="mvc.adminEvent.model.vo.Event"%>
@@ -160,7 +160,7 @@
 				<tr>
 					<th>시작</th>
 				<td><input type="type" id="startdate" name="event_start_date" 
-		                   value="<%=event.getEvent_start_date()%>">
+		                   value="<%=event.getEvent_start_date()%>" class="modify-writer">
 		            </td>
 				</tr>
 				<tr>
@@ -168,7 +168,7 @@
 					
 					<td>
 					<input type="type" id="finaldate" name="event_last_date"
-		                   value="<%=event.getEvent_last_date()%>">
+		                   value="<%=event.getEvent_last_date()%>" class="modify-writer">
 		            </td>
 				</tr>
 				<tr>
@@ -187,6 +187,17 @@
 					<th>주최</th>
 					<td><input type="text" name="event_hosting" class="modify-writer"value="<%=event.getEvent_hosting() %>"/></td>
 				</tr>
+				
+				<tr>
+				<% if(event.getEvent_img() == null){ %>
+				<th>이미지링크</th>
+					<td><input type="text" name="event_img" class="modify-writer" value="https://drive.google.com/uc?id=" /></td>
+					<%}else{ %>
+					<th>이미지링크</th>
+					<td><input type="text" name="event_img" class="modify-writer" value="<%=event.getEvent_img() %>" /></td>
+					<%} %>
+				</tr>
+				<!--  
 				<tr>
 					<th>첨부파일</th>
 					<td>
@@ -210,6 +221,7 @@
 					<% } %>
 					</td>
 				</tr>
+				-->
 				<tr>
 					<th>내용</th>
 					<td><textarea name="event_content" class="modify-content" cols="50" rows="15" >

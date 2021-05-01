@@ -1,4 +1,4 @@
-<!-- 210430  19:27  -->
+<!-- 210430 조한결  19:27  -->
 <%@page import="java.util.ArrayList"%>
 <%@page import="mvc.adminEvent.model.vo.Event"%>
 <%@page import="java.util.List"%>
@@ -129,7 +129,7 @@ table#feslist th, table#feslist td {
 					<%= event.getEvent_name() %>
 					</td><% if(event.getEvent_img() != null){ %>
 					<td><img id="img" src="<%=event.getEvent_img() %>"/>
-					<% }else{ %><td><img id="img" src="/resources/upload/event/<%=event.getRenamed_FileName() %>"/>
+					<% }else{ %><td><img id="text" value="<%=event.getRenamed_FileName() %>"/>
 					<% } %>
 					</td>
 					<td><%= event.getEvent_content() %></td>

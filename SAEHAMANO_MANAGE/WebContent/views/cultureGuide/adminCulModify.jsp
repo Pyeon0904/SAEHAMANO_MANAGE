@@ -1,4 +1,3 @@
-<!-- 최종! -->
 <!--210430 19:40 이재용 -->
 <!-- 수정 삭제 페이지 -->
 
@@ -8,6 +7,11 @@
     
 <%@ include file="/views/common/headerDetail.jsp" %>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
+
 <%
 	Culture culture = (Culture) request.getAttribute("culture");
 %>
@@ -88,7 +92,21 @@ table#cul-modify textarea:hover{background: #453625;}
 				</tr>
 				<tr>
 					<th>지역</th>
-					<td><input type="text"  name="region"  value="<%=culture.getCul_region() %>"></td>
+					<td><select id="region" name="region" required>
+                         <option vaulue="<%=culture.getCul_region()%> "  selected> 지역 </option>
+                     </select>
+   
+                     
+                          <script>
+                             $(document).ready(function(){
+                                 var region = ['서울특별시','경기도','강원도','충청북도','충청남도', '전라북도','전라남도',
+                                    '경상북도','경상남도','제주도','부산광역시','대구광역시','인천광역시','광주광역시','대전광역시','울산광역시'];
+                                 $("#region").select2({
+                                      data:region
+                                 });
+                              });
+                          
+                          </script></td>
 				</tr>
 				<tr>
 					<th>주소</th>
@@ -108,11 +126,50 @@ table#cul-modify textarea:hover{background: #453625;}
 				</tr>
 				<tr>
 					<th>분류</th>
-					<td><input type="text" name="category" value="<%=culture.getCul_category() %>"/></td>
+					<td> <select id="category" name="category" required>
+                         <option value="<%=culture.getCul_category() %>" selected>문화재 종류</option>
+                     </select>
+                     
+                          <script>
+                             $(document).ready(function(){
+                                 var category = ['유적건조물','유물','기록유산','무형문화재','자연유산','등록문화재','무형유산'];
+                                 $("#category").select2({
+                                      data:category
+                                 });
+                              });
+                             
+                          </script></td>
 				</tr>
 				<tr>
 					<th>정의</th>
 					<td><input type="text"  name="field" value="<%=culture.getCul_field() %>"/></td>
+				</tr>
+				<tr>
+				<% if(culture.getImg1() != null){ %>
+					<th>이미지링크 1</th>
+					<td><input type="text"  name="img1" value="<%=culture.getImg1() %>"/></td>
+					<%} else{ %>
+					<th>이미지링크 1 </th>
+					<td><input type="text"  name="img1" value="https://drive.google.com/uc?id="  /></td>
+					<% } %>
+				</tr>
+				<tr>
+					<% if(culture.getImg2() != null){ %>
+					<th>이미지링크 2</th>
+					<td><input type="text"  name="img2" value="<%=culture.getImg2() %>"/></td>
+					<%} else{ %>
+					<th>이미지링크 2 </th>
+					<td><input type="text"  name="img2" value="https://drive.google.com/uc?id="  /></td>
+					<% } %>
+				</tr>
+				<tr>
+					<% if(culture.getImg3() != null){ %>
+					<th>이미지링크 3</th>
+					<td><input type="text"  name="img3" value="<%=culture.getImg3() %>"/></td>
+					<%} else{ %>
+					<th>이미지링크 3 </th>
+					<td><input type="text"  name="img3" value="https://drive.google.com/uc?id="  /></td>
+					<% } %>
 				</tr>
 				<tr>
 					<th>설명</th>
@@ -120,12 +177,15 @@ table#cul-modify textarea:hover{background: #453625;}
 					<textarea name="description" class="cul-content" cols="50" rows="15" ><%=culture.getCul_description() %></textarea></td>
 				</tr>
 				
+				
+				<!-- 
 				<tr>
 					<th> 첨부파일 </th>
 					<td><input type="file" name="reloadFile">
 					<%= culture.getOriginal_filename() %>
 					</td>
 				</tr>
+				 -->
 				<tr>
 					<th colspan="2">
 						<input type="submit" class="cul-mod" value="수정">
