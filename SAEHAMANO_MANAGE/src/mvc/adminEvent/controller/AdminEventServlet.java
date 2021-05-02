@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import mvc.adminEvent.model.service.EventService;
 import mvc.adminEvent.model.vo.Event;
 
-@WebServlet("event/eventschedule")
+@WebServlet("/admin/event")
 public class AdminEventServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private EventService service = new EventService();

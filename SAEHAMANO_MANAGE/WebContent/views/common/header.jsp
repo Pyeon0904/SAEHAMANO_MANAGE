@@ -163,9 +163,9 @@
 					<ul class="detailtab">
 					</ul></li>
 
-				<li><a class="semititle" href="<%= request.getContextPath() %>/event/eventschedule">행사 일정</a>
+				<li><a class="semititle" href="<%= request.getContextPath() %>/admin/event">행사 일정</a>
 					<ul class="detailtab">
-						<li><a class="submenu" href="<%= request.getContextPath() %>/event/eventschedule">축제 소개</a></li>
+						<li><a class="submenu" href="<%= request.getContextPath() %>/admin/event">축제 소개</a></li>
 					
 					</ul></li>
 

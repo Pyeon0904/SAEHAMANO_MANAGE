@@ -45,8 +45,17 @@
        margin:0 auto;
       font-family: 'GmarketSansLight';
    }
-   
-  
+
+#btn-add{
+float:right; 
+	text-align: center;
+	width: 65px;	height: 35px;
+	padding: 5px 5px;
+	background: wheat;
+	border:none;
+	font-family: 'GmarketSansMedium';
+}   
+
 /* 전체 세션 영역 크기&스타일 지정*/
 #content {
 	width: 0 auto ; height: 0 auto; 	margin:0 auto;
@@ -98,12 +107,14 @@ table#feslist th, table#feslist td {
 	<div id="board-containers">
 		<div id="title">
 			<span>축제 관리</span>
-		</div>
 		<div id="enroll">
-			<input type="button" value="등록"
+			<input id="btn-add" type="button" value="등록"
 			onclick="location.href='<%= request.getContextPath() %>/event/enroll'"><!-- enrollevent.jsp로 이동 -->
 		</div>	
+		</div>
+		
 			<table id="feslist">			
+			
 				<tr>
 					<th>글번호</th>
 					<th id="t1" >제목</th>

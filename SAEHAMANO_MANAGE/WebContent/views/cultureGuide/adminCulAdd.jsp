@@ -115,7 +115,7 @@ table#cul-modify textarea:hover{background: #453625;}
 				</tr>
 				<tr>
 					<th>지정일</th>
-					<td><input type="text" name="deg_date" /></td>
+					<td><input type="text" name="deg_date" placeholder="yy/MM/dd 형식으로 작성해주세요." /></td>
 				</tr>
 				<tr>
 					<th>시대</th>

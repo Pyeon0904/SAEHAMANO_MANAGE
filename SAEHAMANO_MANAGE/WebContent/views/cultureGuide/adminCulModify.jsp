@@ -93,7 +93,7 @@ table#cul-modify textarea:hover{background: #453625;}
 				<tr>
 					<th>지역</th>
 					<td><select id="region" name="region" required>
-                         <option vaulue="<%=culture.getCul_region()%> "  selected> 지역 </option>
+                        <option value="<%=culture.getCul_region()%> "><%=culture.getCul_region()%></option>
                      </select>
    
                      
@@ -127,7 +127,7 @@ table#cul-modify textarea:hover{background: #453625;}
 				<tr>
 					<th>분류</th>
 					<td> <select id="category" name="category" required>
-                         <option value="<%=culture.getCul_category() %>" selected>문화재 종류</option>
+                         <option value="<%=culture.getCul_category() %>" selected><%=culture.getCul_category() %></option>
                      </select>
                      
                           <script>

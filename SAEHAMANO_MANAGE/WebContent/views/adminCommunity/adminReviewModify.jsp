@@ -85,39 +85,16 @@
 		outline-color: wheat;
 		position: relative; /*z-index 사용해서 배치 앞으로 하기 위해 작성*/
 		z-index: 8;
+		font-family: GmarketSansLight;
 	}
-	
-	/* 말풍선 -----------------------------------------------------*/
-	
-	/* 말풍선 (질문제목) */
-	.boardballoonTitle {
-		margin-top: 110px;
-		margin-left: 100px;
-		position: relative;
-	}
-	
-	/* 말풍선 (유저정보) */
-	.boardballoonUser {
-		margin-top: -150px;
-		margin-left: 1250px;
-		position: relative;
-	}
-	
-	/* 말풍선 내부 "작성 TIP" */
-	#titleWriteTip, #userWriteTip {
-		color: green;
-		font-weight: 1200;
-		position: relative;
-	}
-	
-	/*------------------------------------------------------------*/
 	
 	/* 작성 TABLE -------------------------------------------------*/
 	/* 테이블 상단 영역 */
 	.reviewTitleArea {
-		margin-top: -360px;
+		margin-top: 110px;
 		margin-left: 420px;
 		height: 10px;
+		font-family: GmarketSansLight;
 	}
 	
 	/* dropdown 너비 */
@@ -144,6 +121,7 @@
 		background-color: wheat;
 		position: relative; /*z-index 사용해서 배치 앞으로 하기 위해 작성*/
 		z-index: 6;
+		font-family: GmarketSansLight;
 	}
 	
 	/* 테이블 th에 대한 스타일 지정 */
@@ -152,6 +130,7 @@
 		border: 1px solid;
 		padding: 5px 0;
 		text-align: center;
+		font-family: GmarketSansLight;
 	}
 	
 	/* 테이블 td에 대한 스타일 지정 */
@@ -159,6 +138,7 @@
 		border: 1px solid;
 		padding: 5px 0 5px 10px;
 		text-align: left;
+		font-family: GmarketSansLight;
 	}
 	/*------------------------------------------------------------*/
 	
@@ -185,34 +165,6 @@
 				</div>
 				<!------------------------------------------------------------------------------- -->
 
-				<!-- 말풍선 구현 ---------------------------------------------------------- -->
-				<!-- '질문' 말풍선 + 내부에 text(글) 넣기 구현 -->
-				<div style="position: relative;">
-					<img class="boardballoonTitle"
-						src="<%=request.getContextPath() %>/resources/images/boardBalloonTitle.png">
-					<div
-						style="left: 125px; width: 450px; bottom: 30px; font-size: 1.0em; font-weight: bold; position: absolute;">
-						<p id="titleWriteTip">작성 TIP</p>
-						정확한 답변을 원하시나요?<br> 궁금한 점을 상세하게<br> 알 수 있도록 작성해 보세요!<br>
-						(최소 5자)<br> <br>
-						<p id="writeTip">예시문</p>
-						"숭례문 재건축일?"<br> "수원화성 위치는?"<br>
-					</div>
-				</div>
-
-				<!-- '유저정보(닉네임,비밀번호)' 말풍선 + 내부에 text(글) 넣기 구현 -->
-				<div style="position: relative;">
-					<img class="boardballoonUser"
-						src="<%=request.getContextPath() %>/resources/images/boardBalloonUser.png">
-					<div
-						style="left: 1295px; width: 450px; bottom: 30px; font-size: 1.0em; font-weight: bold; position: absolute;">
-						<p id="userWriteTip">작성 TIP</p>
-						닉네임은 '작성자'에 사용됩니다.<br> 패스워드는 글을 수정, 삭제시 사용됩니다.<br> 계정정보를
-						잊지 않도록 유의해주세요!<br> <br>
-					</div>
-				</div>
-				<!---------------------------------------------------------------------------------->
-
 				<!--표(Table) 위에 제목, 제목작성칸 구현 -------------------------------------------------------------------------------->
 				<!-- (0425 20:54) by.예원 form태그 추가/ 제목 input name 속성 추가 -->
 				<form action="<%=request.getContextPath()%>/community/review/update" method="POST">
@@ -223,7 +175,7 @@
 					
 					<div class="reviewTitleArea">
 						<h2>
-							<label>제목 <input type="text" id="title" name="title" maxlength="80" value="<%=review.getRe_name()%>"></label>
+							<label style="color: wheat">&nbsp;&nbsp;&emsp;제목&nbsp;&emsp;<input type="text" id="title" name="title" maxlength="80" value="<%=review.getRe_name()%>"></label>
 						</h2>
 						<!---------------------------------------------------------------------------------->
 
@@ -276,13 +228,13 @@
 							</tr>
 							<tr>
 							<!-- 210429(목) by준장 - (등록버튼을 '수정'으로, 취소버튼을 '삭제'로 바꾸고 이에 맞게 구현필요!)  -->
-								<th colspan="2"><input type="submit" value="수정"> 
-								<button type="button" onclick="location.href='<%=request.getContextPath()%>/community/review/delete?reviewNo=<%=review.getRe_no()%>'">삭제</button>
+								<th colspan="2"><input type="submit" style="font-family: GmarketSansLight;" value="수정"> 
+								<button type="button" style="font-family: GmarketSansLight;" onclick="location.href='<%=request.getContextPath()%>/community/review/delete?reviewNo=<%=review.getRe_no()%>'">삭제</button>
 							</tr>
 						</table>
 						<!---------------------------------------------------------------------------------->
 
-						<h5 style="color: #696666">저작권 등 다른 사람의 권리를 침해하거나 명예를 훼손하는
+						<h5 style="color: #696666; font-family: GmarketSansLight;">저작권 등 다른 사람의 권리를 침해하거나 명예를 훼손하는
 							게시물은 관련법률에 의해 제재를 받으실 수 있습니다.</h5>
 					</div>
 				</form>

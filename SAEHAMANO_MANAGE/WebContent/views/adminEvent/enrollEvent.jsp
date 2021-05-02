@@ -148,13 +148,13 @@
 				</tr> -->
 				<tr>
 					<th>시작</th>
-					<td><input type="type" id="startdate" name="event_start_date" class="enroll-writer">
+					<td><input type="type" id="startdate" name="event_start_date" class="enroll-writer" placeholder="yyyyMMdd 형식으로 작성해주세요.">
 		            </td>
 				</tr>
 				<tr>
 					<th>종료</th>
 					<td>
-					<input type="type" id="finaldate" name="event_last_date" class="enroll-writer">
+					<input type="type" id="finaldate" name="event_last_date" class="enroll-writer" placeholder="yyyyMMdd 형식으로 작성해주세요.">
 		            </td>
 				</tr>
 				<tr>
@@ -190,7 +190,7 @@
 				<tr>
 					<th colspan="2">
 						<input type = "reset"value="취소">
-						<input type="submit" class="btn-submit" value="등록">
+						<input type="submit" value="등록">
 					</th>
 				</tr>
 			</table>

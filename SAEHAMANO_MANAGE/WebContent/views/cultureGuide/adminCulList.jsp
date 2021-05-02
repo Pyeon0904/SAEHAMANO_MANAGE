@@ -75,6 +75,17 @@ table#tbl-board th, table#tbl-board td {
 	padding: 13px 0;
 	text-align: center;
 }
+
+/*"분류" 컬럼 너비 조정*/
+#td2 {
+	width: 80px;
+}
+
+/* "시대", "지정일" 컬럼 너비 조정*/
+#td3, #td4 {
+	width: 120px;
+}
+
 /*테이블 제목 스타일 지정*/
 #tbl-board th{
 	background:wheat;
@@ -112,10 +123,10 @@ table#tbl-board th, table#tbl-board td {
 			<table id="tbl-board">
 				<tr class="fix-head">
 					<th width="10%">문화재번호</th>
-					<th>분류</th>
+					<th id="td2">분류</th>
 					<th width="40%">이름</th>
-					<th>시대</th>
-					<th>지정일</th>
+					<th id="td3">시대</th>
+					<th id="td4">지정일</th>
 					<th>위치</th>
 				</tr>
 			<% if(list.isEmpty()){ %>
@@ -126,13 +137,13 @@ table#tbl-board th, table#tbl-board td {
 				for(Culture culture : list){ %>
 				<tr>
 					<td><%=culture.getCul_no() %></td>
-					<td><%=culture.getCul_category() %></td>
+					<td id="td2"><%=culture.getCul_category() %></td>
 					<td>
 					<a href="<%=request.getContextPath() %>/culture/modify?cul_no=<%=culture.getCul_no()%>">
 					<%=culture.getCul_name() %>
 					</a></td>
-					<td><%=culture.getCul_era() %></td>
-					<td><%=culture.getDeg_date() %></td>
+					<td id="td3"><%=culture.getCul_era() %></td>
+					<td id="td4"><%=culture.getDeg_date() %></td>
 					<td><%=culture.getCul_location() %></td>
 				</tr>
 				<% 
